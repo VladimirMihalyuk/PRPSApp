@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">PRPSApp</string>
+    <string name="app_name">Poster</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_poster">Poster</string>
+    <string name="fragment_buy_tickets">Buy Tickets</string>
 </resources>

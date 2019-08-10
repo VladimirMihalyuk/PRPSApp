@@ -15,7 +15,7 @@
 
 
         <TextView
-                android:text="Morzh plavaet zalupu havaet"
+                android:text="Mne pohui na zakon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView"

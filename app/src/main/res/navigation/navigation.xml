@@ -14,5 +14,12 @@
 
     <fragment android:id="@+id/buy_tickets_fragment"
               android:name="com.example.prpsapp.buy_tickets.BuyTicketsFragment"
-              android:label="@string/fragment_buy_tickets"/>
+              android:label="@string/fragment_buy_tickets">
+        <action android:id="@+id/action_buy_tickets_fragment_to_poster_fragment2"
+                app:destination="@id/poster_fragment" app:popUpTo="@+id/poster_fragment"/>
+    </fragment>
+    <fragment android:id="@+id/about_fragment" android:name="com.example.prpsapp.about.AboutFragment"
+              android:label="AboutFragment"/>
+    <fragment android:id="@+id/return_tickets_fragment" android:name="com.example.prpsapp.ReturnTicketsFragment"
+              android:label="ReturnTicketsFragment"/>
 </navigation>

@@ -10,6 +10,9 @@
               android:id="@+id/poster_fragment">
         <action android:id="@+id/action_poster_fragment_to_buy_tickets_fragment"
                 app:destination="@id/buy_tickets_fragment"/>
+        <action android:id="@+id/action_poster_fragment_to_return_tickets_fragment"
+                app:destination="@id/return_tickets_fragment"/>
+        <action android:id="@+id/action_poster_fragment_to_about_fragment" app:destination="@id/about_fragment"/>
     </fragment>
 
     <fragment android:id="@+id/buy_tickets_fragment"
@@ -19,7 +22,16 @@
                 app:destination="@id/poster_fragment" app:popUpTo="@+id/poster_fragment"/>
     </fragment>
     <fragment android:id="@+id/about_fragment" android:name="com.example.prpsapp.about.AboutFragment"
-              android:label="AboutFragment"/>
+              android:label="AboutFragment">
+        <action android:id="@+id/action_about_fragment_to_return_tickets_fragment"
+                app:destination="@id/return_tickets_fragment"/>
+        <action android:id="@+id/action_about_fragment_to_poster_fragment" app:destination="@id/poster_fragment"/>
+    </fragment>
     <fragment android:id="@+id/return_tickets_fragment" android:name="com.example.prpsapp.ReturnTicketsFragment"
-              android:label="ReturnTicketsFragment"/>
+              android:label="ReturnTicketsFragment">
+        <action android:id="@+id/action_return_tickets_fragment_to_about_fragment"
+                app:destination="@id/about_fragment"/>
+        <action android:id="@+id/action_return_tickets_fragment_to_poster_fragment"
+                app:destination="@id/poster_fragment"/>
+    </fragment>
 </navigation>

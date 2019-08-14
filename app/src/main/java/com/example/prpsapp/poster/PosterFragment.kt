@@ -30,10 +30,10 @@ class PosterFragment : Fragment() {
         val binding: FragmentPosterBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_poster, container, false)
 
-        binding.button.setOnClickListener{
-            //safe args huli need to add smth to gradle
-           findNavController().navigate(PosterFragmentDirections.actionPosterFragmentToBuyTicketsFragment())
-        }
+//        binding.button.setOnClickListener{
+//            //safe args huli need to add smth to gradle
+//           findNavController().navigate(PosterFragmentDirections.actionPosterFragmentToBuyTicketsFragment())
+//        }
 
         return binding.root
     }

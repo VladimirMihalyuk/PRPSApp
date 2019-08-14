@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="session"
+                  type="com.example.prpsapp.database.Session"/>
+
+        <variable name="clickListener"
+                  type="com.example.prpsapp.poster.SessionClickListener"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:onClick="@{() -> clickListener.onClick(session)}">>
+
+        <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:filmImage="@{session}"
+                tools:srcCompat="@tools:sample/avatars"
+                android:id="@+id/imageFilm"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="16dp"/>
+        <TextView
+                android:text="NameOfFlim"
+                app:nameOfFilm="@{session}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_of_film"
+                app:layout_constraintStart_toEndOf="@+id/imageFilm"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/dutation"/>
+        <TextView
+                android:text="Duration"
+                app:durationOfFilm="@{session}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dutation"
+                app:layout_constraintStart_toEndOf="@+id/imageFilm"
+                android:layout_marginStart="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/name_of_film"
+                app:layout_constraintBottom_toTopOf="@+id/tickets_left"/>
+        <TextView
+                android:text="TicketsLeft"
+                app:tiketsLeft="@{session}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tickets_left"
+                app:layout_constraintStart_toEndOf="@+id/imageFilm"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dutation"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -59,4 +59,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
 
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_coroutine"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
 }

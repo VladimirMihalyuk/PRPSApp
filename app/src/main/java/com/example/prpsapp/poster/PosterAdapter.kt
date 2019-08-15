@@ -1,5 +1,6 @@
 package com.example.prpsapp.poster
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -9,7 +10,8 @@ import com.example.prpsapp.database.Session
 import com.example.prpsapp.databinding.ListFilmItemBinding
 
 
-class PosterAdapter(val clickListener: SessionClickListener): ListAdapter<Session, PosterAdapter.ViewHolder>(DiffCallback()){
+class PosterAdapter(val clickListener: SessionClickListener):
+    ListAdapter<Session, PosterAdapter.ViewHolder>(DiffCallback()){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)

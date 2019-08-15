@@ -1,4 +1,4 @@
-package com.example.prpsapp
+package com.example.prpsapp.poster
 
 import android.widget.ImageView
 import android.widget.TextView

@@ -4,7 +4,8 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable name="viewModel"
+                  type="com.example.prpsapp.poster.PosterFragmentViewModel"/>
     </data>
 
 
@@ -14,7 +15,9 @@
             tools:context=".poster.PosterFragment">
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/films"/>
+                android:layout_height="match_parent"
+                android:id="@+id/films"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

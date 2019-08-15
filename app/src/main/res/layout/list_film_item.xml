@@ -9,11 +9,13 @@
         <variable name="clickListener"
                   type="com.example.prpsapp.poster.SessionClickListener"/>
     </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:onClick="@{() -> clickListener.onClick(session)}">>
+            android:onClick="@{() -> clickListener.onClick(session)}">
 
         <ImageView
                 android:layout_width="100dp"

@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.prpsapp.R
+import com.example.prpsapp.databinding.FragmentBuyTicketsBinding
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,8 +27,14 @@ class BuyTicketsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buy_tickets, container, false)
+        val binding: FragmentBuyTicketsBinding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_buy_tickets, container, false)
+
+        binding.button.setOnClickListener{
+            findNavController().navigate(BuyTicketsFragmentDirections.actionBuyTicketsFragmentToRegistrationFragmnet())
+        }
+
+        return binding.root
     }
 
 

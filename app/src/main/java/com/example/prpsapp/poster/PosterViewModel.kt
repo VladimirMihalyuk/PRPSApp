@@ -8,7 +8,7 @@ import com.example.prpsapp.database.DatabaseDao
 import com.example.prpsapp.database.Session
 import kotlinx.coroutines.*
 
-class PosterFragmentViewModel(
+class PosterViewModel(
         val database: DatabaseDao,
         application: Application) : AndroidViewModel(application) {
 

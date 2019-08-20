@@ -18,4 +18,8 @@ interface DatabaseDao {
     @Query("SELECT *FROM Client WHERE email = :newEmail")
     fun getClientsWithEmail(newEmail: String): List<Client>
 
+    @Query("SELECT idClient FROM Client WHERE email = :newEmail and password = :newPassword")
+    fun checkClientExist(newEmail: String, newPassword: String): Long?
+
+
 }

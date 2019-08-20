@@ -70,7 +70,7 @@ class RegistrationFragmnet : Fragment() {
 
         viewModel.correctEmail.observe(this, Observer { correct ->
             if(!correct){
-                binding.emailLayout.error = "Wrong email"
+                binding.emailLayout.error = "Wrong e-mail"
             } else {
                 binding.emailLayout.isErrorEnabled = false
             }

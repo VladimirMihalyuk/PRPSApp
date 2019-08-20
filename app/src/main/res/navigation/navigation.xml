@@ -21,8 +21,7 @@
                 <action android:id="@+id/action_buy_tickets_fragment_to_poster_fragment2"
                         app:destination="@id/poster_fragment" app:popUpTo="@+id/poster_fragment"/>
         <argument android:name="idSession" app:argType="long"/>
-        <action android:id="@+id/action_buy_tickets_fragment_to_registrationFragmnet"
-                app:destination="@id/registrationFragmnet"/>
+        <action android:id="@+id/action_buy_tickets_fragment_to_signInFragment" app:destination="@id/signInFragment"/>
     </fragment>
     <fragment android:id="@+id/about_fragment"
               android:name="com.example.prpsapp.about.AboutFragment"
@@ -41,7 +40,13 @@
     <fragment android:id="@+id/registrationFragmnet"
               android:name="com.example.prpsapp.registration.RegistrationFragmnet" android:label="Registration"
               tools:layout="@layout/fragment_registration">
-        <action android:id="@+id/action_registrationFragmnet_to_buy_tickets_fragment"
+        <action android:id="@+id/action_registrationFragmnet_to_signInFragment" app:destination="@id/signInFragment"/>
+    </fragment>
+    <fragment android:id="@+id/signInFragment" android:name="com.example.prpsapp.signIn.SignInFragment"
+              android:label="SignIn" tools:layout="@layout/fragment_sign_in">
+        <action android:id="@+id/action_signInFragment_to_buy_tickets_fragment"
                 app:destination="@id/buy_tickets_fragment"/>
+        <action android:id="@+id/action_signInFragment_to_registrationFragmnet"
+                app:destination="@id/registrationFragmnet"/>
     </fragment>
 </navigation>

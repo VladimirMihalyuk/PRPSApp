@@ -118,7 +118,8 @@
                             android:ems="10"
                             android:text="@={viewModel.password}"
                             app:passwordFocus="@{viewModel}"
-                            android:id="@+id/password" android:layout_weight="1"/>
+                            android:id="@+id/password"
+                            android:layout_weight="1"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout

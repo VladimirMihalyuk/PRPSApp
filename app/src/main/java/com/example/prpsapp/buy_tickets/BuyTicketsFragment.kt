@@ -31,7 +31,7 @@ class BuyTicketsFragment : Fragment() {
             R.layout.fragment_buy_tickets, container, false)
 
         binding.button.setOnClickListener{
-            findNavController().navigate(BuyTicketsFragmentDirections.actionBuyTicketsFragmentToRegistrationFragmnet())
+            findNavController().navigate(BuyTicketsFragmentDirections.actionBuyTicketsFragmentToSignInFragment())
         }
 
         return binding.root

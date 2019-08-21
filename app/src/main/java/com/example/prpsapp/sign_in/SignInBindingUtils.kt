@@ -1,4 +1,4 @@
-package com.example.prpsapp.signIn
+package com.example.prpsapp.sign_in
 
 import android.view.View
 import android.widget.EditText

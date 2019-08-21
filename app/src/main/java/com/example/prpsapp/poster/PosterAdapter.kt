@@ -53,6 +53,6 @@ class DiffCallback : DiffUtil.ItemCallback<Session>() {
     }
 }
 
-class SessionClickListener(val clickListener: (sleepId: Long) -> Unit) {
-    fun onClick(session: Session) = clickListener(session.idSession)
+class SessionClickListener(val clickListener: (sleepId: Long, description: String, ticketsLeft: Long, image:String, filmName: String) -> Unit) {
+    fun onClick(session: Session) = clickListener(session.idSession, session.description, session.ticketsLeft, session.image, session.nameOfFilm)
 }

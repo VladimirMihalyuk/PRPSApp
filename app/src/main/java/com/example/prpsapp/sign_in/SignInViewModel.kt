@@ -1,7 +1,6 @@
-package com.example.prpsapp.signIn
+package com.example.prpsapp.sign_in
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

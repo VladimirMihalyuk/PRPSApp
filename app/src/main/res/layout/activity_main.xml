@@ -13,12 +13,13 @@
                 android:layout_height="match_parent"
                 app:defaultNavHost="true"
                 app:navGraph="@navigation/navigation"
-                tools:layout="@layout/fragment_poster" android:layout_above="@+id/navigation_view"
+                tools:layout="@layout/fragment_poster"
+                android:layout_above="@+id/navigation_view"
                 android:layout_marginBottom="0dp"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/navigation_view"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:menu="@menu/nav_menu"
                 android:layout_alignParentBottom="true">

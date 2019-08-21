@@ -44,18 +44,19 @@ class PosterFragment : Fragment() {
         binding.viewModel = viewModel
 
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         viewModel.navigateToBuyTicket.observe(this, Observer { idSession ->
             idSession?.let {
                 this.findNavController().navigate(
-                    PosterFragmentDirections.actionPosterFragmentToBuyTicketsFragment(idSession))
+                    PosterFragmentDirections.actionPosterFragmentToBuyTicketsFragment(idSession, viewModel.description, viewModel.ticketsLeft,
+                        viewModel.image, viewModel.name))
                     viewModel.doneNavigating()
             }
         })
 
-        val adapter = PosterAdapter(SessionClickListener { sessionId ->
-            viewModel.onSessionClicked(sessionId)
+        val adapter = PosterAdapter(SessionClickListener { sessionId, description, ticketsLeft, image, name ->
+            viewModel.onSessionClicked(sessionId, description, ticketsLeft, image, name)
         })
 
         binding.films.adapter = adapter

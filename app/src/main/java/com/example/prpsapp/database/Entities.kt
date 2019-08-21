@@ -1,7 +1,9 @@
 package com.example.prpsapp.database
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class Client(
@@ -59,6 +61,17 @@ data class Session(
     var image: String,
 
     var nameOfFilm: String
+)
+
+data class BuyTicketsQuerySecond(
+    @ColumnInfo(name = "specialCode")
+    val specialCode: String,
+
+    @ColumnInfo(name = "time")
+    val time: Long,
+
+    @ColumnInfo(name = "cinema")
+    val cinema: String
 )
 
 

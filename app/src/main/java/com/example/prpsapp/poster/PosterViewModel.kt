@@ -44,7 +44,17 @@ class PosterViewModel(
         _navigateToBuyTicket.value = null
     }
 
-    fun onSessionClicked(id: Long){
+    var description = ""
+    var ticketsLeft = 0L
+    var image = ""
+    var name = ""
+
+    fun onSessionClicked(id: Long, _description: String, _ticketsLeft: Long, _image: String, _name: String){
+
+        description = _description
+        ticketsLeft = _ticketsLeft
+        image = _image
+        name = _name
         _navigateToBuyTicket.value = id
     }
 

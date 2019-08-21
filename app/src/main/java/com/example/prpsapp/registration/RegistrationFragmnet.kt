@@ -49,7 +49,7 @@ class RegistrationFragmnet : Fragment() {
 
         binding.viewModel = viewModel
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         viewModel.correctFullName.observe(this, Observer { correct ->
             if(!correct){

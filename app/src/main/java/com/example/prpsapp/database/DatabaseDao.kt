@@ -22,4 +22,8 @@ interface DatabaseDao {
     fun checkClientExist(newEmail: String, newPassword: String): Long?
 
 
+    @Query("SELECT T.specialCode, T.time, T.cinema FROM Ticket as T, TicketsForSession as TFS WHERE TFS.idTicket = T.idTicket and TFS.idSession = :id")
+    fun getListOfTickets(id: Long): List<BuyTicketsQuerySecond>?
+
+
 }

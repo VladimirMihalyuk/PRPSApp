@@ -1,4 +1,4 @@
-package com.example.prpsapp.signIn
+package com.example.prpsapp.sign_in
 
 
 import android.os.Bundle
@@ -11,10 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.prpsapp.R
 import com.example.prpsapp.database.CinemaDatabase
-import com.example.prpsapp.databinding.FragmentRegistrationBinding
 import com.example.prpsapp.databinding.FragmentSignInBinding
-import com.example.prpsapp.registration.RegistrationViewModel
-import com.example.prpsapp.registration.RegistrationViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -72,7 +69,7 @@ class SignInFragment : Fragment() {
 
         })
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         return binding.root
     }
 

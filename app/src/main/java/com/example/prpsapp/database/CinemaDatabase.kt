@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 
 
 @Database(entities = [Client::class, TicketsForClient::class, Ticket::class, TicketsForSession::class, Session::class],
-    version = 1, exportSchema = false)
+    version = 3, exportSchema = false)
 abstract class CinemaDatabase:  RoomDatabase() {
     abstract val databaseDao: DatabaseDao
 

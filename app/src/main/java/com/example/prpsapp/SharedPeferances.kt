@@ -3,7 +3,8 @@ package com.example.prpsapp
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
+
+val FIVE = 5L
 
 val prefs: Prefs by lazy {
     App.prefs!!

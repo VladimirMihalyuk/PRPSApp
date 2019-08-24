@@ -21,9 +21,11 @@ data class Client(
 
 @Entity
 data class TicketsForClient(
+    @PrimaryKey(autoGenerate = true)
+    var idTFC: Long = 0L,
+
     var idClient: Long,
 
-    @PrimaryKey
     var idTicket: Long
 )
 
@@ -41,9 +43,11 @@ data class Ticket(
 
 @Entity
 data class TicketsForSession(
+    @PrimaryKey(autoGenerate = true)
+    var idTFS: Long = 0L,
+
     var idTicket: Long,
 
-    @PrimaryKey
     var idSession: Long
 )
 
@@ -64,6 +68,9 @@ data class Session(
 )
 
 data class BuyTicketsQuerySecond(
+    @ColumnInfo(name = "idTicket")
+    val idTicket: Long,
+
     @ColumnInfo(name = "specialCode")
     val specialCode: String,
 

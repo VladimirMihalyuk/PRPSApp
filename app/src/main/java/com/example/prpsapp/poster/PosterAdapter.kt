@@ -1,6 +1,5 @@
 package com.example.prpsapp.poster
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -43,7 +42,7 @@ class PosterAdapter(val clickListener: SessionClickListener):
 }
 
 
-class DiffCallback : DiffUtil.ItemCallback<Session>() {
+private class DiffCallback : DiffUtil.ItemCallback<Session>() {
     override fun areItemsTheSame(oldItem: Session, newItem: Session): Boolean {
         return oldItem.idSession == newItem.idSession
     }
@@ -53,6 +52,6 @@ class DiffCallback : DiffUtil.ItemCallback<Session>() {
     }
 }
 
-class SessionClickListener(val clickListener: (sleepId: Long, description: String, ticketsLeft: Long, image:String, filmName: String) -> Unit) {
+class SessionClickListener(val clickListener: (id: Long, description: String, ticketsLeft: Long, image:String, filmName: String) -> Unit) {
     fun onClick(session: Session) = clickListener(session.idSession, session.description, session.ticketsLeft, session.image, session.nameOfFilm)
 }

@@ -30,8 +30,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="16dp"/>
         <TextView
-                android:text="NameOfFlim"
-                app:nameOfFilm="@{session}"
+                android:text="@{session.nameOfFilm}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/name_of_film"

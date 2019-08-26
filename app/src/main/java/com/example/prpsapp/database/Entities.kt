@@ -67,7 +67,7 @@ data class Session(
     var nameOfFilm: String
 )
 
-data class BuyTicketsQuerySecond(
+data class BuyTicketsQueryFirst(
     @ColumnInfo(name = "idTicket")
     val idTicket: Long,
 
@@ -80,6 +80,29 @@ data class BuyTicketsQuerySecond(
     @ColumnInfo(name = "cinema")
     val cinema: String
 )
+
+data class ReturnTicketsQueryFirst(
+    @ColumnInfo(name = "idTicket")
+    val idTicket: Long,
+
+    @ColumnInfo(name = "time")
+    val time: Long,
+
+    @ColumnInfo(name = "cinema")
+    val cinema: String,
+
+    @ColumnInfo(name = "nameOfFilm")
+    val nameOdFilm: String,
+
+    @ColumnInfo(name = "image")
+    val img: String,
+
+    @ColumnInfo(name = "tickets")
+    val tickets: Long
+)
+
+
+
 
 
 

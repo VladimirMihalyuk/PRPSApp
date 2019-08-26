@@ -5,17 +5,6 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.prpsapp.database.Session
 
-
-
-
-@BindingAdapter("nameOfFilm")
-fun TextView.setNameOfFilm(item: Session?) {
-    item?.let {
-        text = item.nameOfFilm
-    }
-}
-
-
 @BindingAdapter("durationOfFilm")
 fun TextView.setDurationOfFilm(item: Session?) {
     item?.let {

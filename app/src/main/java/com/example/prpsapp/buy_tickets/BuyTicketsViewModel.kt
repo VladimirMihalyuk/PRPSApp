@@ -1,14 +1,11 @@
 package com.example.prpsapp.buy_tickets
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.prpsapp.database.BuyTicketsQuerySecond
+import com.example.prpsapp.database.BuyTicketsQueryFirst
 import com.example.prpsapp.database.DatabaseDao
 import com.example.prpsapp.database.TicketsForClient
-import com.example.prpsapp.database.TicketsForSession
 import com.example.prpsapp.prefs
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import kotlinx.coroutines.*
@@ -35,7 +32,7 @@ class BuyTicketsViewModel(val database: DatabaseDao,
     var isSelected = false
     var alreadyBoughtTickets = 0L
 
-    private suspend fun getList(idSession: Long): List<BuyTicketsQuerySecond>?{
+    private suspend fun getList(idSession: Long): List<BuyTicketsQueryFirst>?{
         return withContext(Dispatchers.IO){
             async {database.getListOfTickets(idSession)  }.await()
         }

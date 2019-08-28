@@ -42,7 +42,12 @@
     </fragment>
     <fragment android:id="@+id/registrationFragmnet"
               android:name="com.example.prpsapp.registration.RegistrationFragmnet" android:label="Registration"
-              tools:layout="@layout/fragment_registration"/>
+              tools:layout="@layout/fragment_registration">
+        <action android:id="@+id/action_registrationFragmnet_to_signInFragment" app:destination="@id/signInFragment"/>
+    </fragment>
     <fragment android:id="@+id/signInFragment" android:name="com.example.prpsapp.sign_in.SignInFragment"
-              android:label="Sign In" tools:layout="@layout/fragment_sign_in"/>
+              android:label="Sign In" tools:layout="@layout/fragment_sign_in">
+        <action android:id="@+id/action_signInFragment_to_registrationFragmnet"
+                app:destination="@id/registrationFragmnet"/>
+    </fragment>
 </navigation>

@@ -32,7 +32,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="8dp"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintVertical_bias="0.0">
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -87,22 +87,36 @@
 
                 <Button
                         android:text="@string/sign_in"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/button5"
                         android:onClick="@{() -> viewModel.onClick()}"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="24dp"
                         app:layout_constraintTop_toBottomOf="@+id/passwordLayout"
-                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                        app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
+                        app:layout_constraintStart_toStartOf="@+id/passwordLayout"
+                        app:layout_constraintEnd_toEndOf="@+id/passwordLayout"/>
                 <Button
                         android:text="@string/sign_up"
-                        android:layout_width="wrap_content"
+                        android:onClick="@{() -> viewModel.signUp()}"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content" android:id="@+id/button6"
-                        android:layout_marginEnd="8dp"
-                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
-                        app:layout_constraintTop_toBottomOf="@+id/button5" app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginStart="8dp" android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/signOut"
+                        app:layout_constraintEnd_toEndOf="@+id/signOut"
+                        app:layout_constraintStart_toStartOf="@+id/signOut"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="24dp"/>
+
+                <Button
+                        android:text="Sign out"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/signOut"
+                        app:layout_constraintEnd_toEndOf="@+id/button5"
+                        app:layout_constraintStart_toStartOf="@+id/button5"
+                        android:layout_marginTop="16dp"
+                        android:onClick="@{() -> viewModel.signOut()}"
+                        app:layout_constraintTop_toBottomOf="@+id/button5"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

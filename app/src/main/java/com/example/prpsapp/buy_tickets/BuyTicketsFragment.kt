@@ -56,7 +56,7 @@ class BuyTicketsFragment : Fragment() {
             when(code){
                 0 -> msg = "You have bought ${viewModel.selectedTickets} tickets"
                 1 -> msg = message
-                2 -> msg = "Log in plz"
+                2 -> msg = "Please sign in"
                 3 -> msg = "You can't buy more than 5 tickets per session. Now you have ${viewModel.alreadyBoughtTickets} "
             }
             Snackbar.make(

@@ -50,6 +50,22 @@ class SignInViewModel(val database: DatabaseDao, application: Application) : And
         }
     }
 
+    private val _eventSignUp = MutableLiveData<Boolean>()
+    val eventSignUp: LiveData<Boolean>
+        get() = _eventSignUp
+
+    fun signUp(){
+        _eventSignUp.value = true
+    }
+
+    fun endSignUpEvent(){
+        _eventSignUp.value = false
+    }
+
+    fun signOut(){
+        prefs.emailClient = null
+        _problemSignIn.value = 3
+    }
 
 
     override fun onCleared() {

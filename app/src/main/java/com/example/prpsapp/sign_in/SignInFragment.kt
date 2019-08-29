@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.prpsapp.R
 import com.example.prpsapp.database.CinemaDatabase
 import com.example.prpsapp.databinding.FragmentSignInBinding
+import com.example.prpsapp.prefs
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -47,6 +48,10 @@ class SignInFragment : Fragment() {
             }
         })
 
+        prefs.emailClient?.let{
+            viewModel.email.value = it
+            viewModel.correctEmail.value = true
+        }
 
         viewModel.correctPassword.observe(this, Observer { correct ->
             if(!correct){

@@ -21,11 +21,12 @@ abstract class CinemaDatabase:  RoomDatabase() {
                 var instance = INSTANCE
                 if (instance == null) {
                     instance = Room.databaseBuilder(
-                        context.applicationContext,
+                       context.applicationContext,
                        CinemaDatabase::class.java,
-                        "CinemaDatabase"
+                        "CinemaDatabase.db"
                     )
                         .fallbackToDestructiveMigration()
+                        .createFromAsset("database/database.db")
                         .build()
                     INSTANCE = instance
                 }

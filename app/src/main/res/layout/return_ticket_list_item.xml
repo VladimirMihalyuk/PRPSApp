@@ -27,6 +27,7 @@
                 android:layout_marginBottom="18dp"/>
         <TextView
                 android:text="@{viewModel.nameOdFilm}"
+                style="@style/TextAppearance.Subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/name"
@@ -36,6 +37,7 @@
                 android:layout_marginStart="16dp"/>
         <TextView
                 android:text="24.05.2020"
+                style="@style/TextAppearance.Subtitle"
                 app:date="@{viewModel}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +49,7 @@
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/cinema"/>
         <TextView
+                style="@style/TextAppearance.Subtitle"
                 android:text="@{viewModel.cinema}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,6 +59,7 @@
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/tickets"/>
         <TextView
+                style="@style/TextAppearance.Subtitle"
                 android:text="5 tickets for this hueta"
                 app:tickets="@{viewModel}"
                 android:layout_width="wrap_content"

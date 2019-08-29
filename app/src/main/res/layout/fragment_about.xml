@@ -22,6 +22,7 @@
             tools:srcCompat="@drawable/img_about"/>
     <TextView
             android:text="@string/this_is_text_about_this_app"
+            style="@style/TextAppearance.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView2" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
@@ -47,6 +48,7 @@
                     android:text="@string/text_about"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/TextAppearance.Subtitle"
                     android:id="@+id/textView3"
                     android:textSize="24sp"/>
         </LinearLayout>

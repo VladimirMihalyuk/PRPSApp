@@ -12,7 +12,7 @@ fun TextView.setDurationOfFilm(item: Session?) {
     }
 }
 
-@BindingAdapter("tiketsLeft")
+@BindingAdapter("ticketsLeft")
 fun TextView.setTicketsLeft(item: Session?) {
     item?.let {
         text = "Tickets left: ${item.ticketsLeft}"

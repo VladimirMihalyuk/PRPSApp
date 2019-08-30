@@ -95,9 +95,6 @@ fun Spinner.selectedTickets(viewModel: BuyTicketsViewModel){
     }
 }
 
-
-
-
 class Decorator(val hashSet: HashSet<CalendarDay>?) :DayViewDecorator{
 
     override fun shouldDecorate(day: CalendarDay?): Boolean {

@@ -1,10 +1,8 @@
 package com.example.prpsapp.registration
 
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.databinding.BindingAdapter
-import kotlinx.android.synthetic.main.fragment_registration.view.*
 
 
 @BindingAdapter("fullNameFocus")

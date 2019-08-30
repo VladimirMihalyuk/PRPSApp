@@ -15,16 +15,11 @@ import com.example.prpsapp.prefs
 import com.google.android.material.snackbar.Snackbar
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+
 
 class SignInFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-
 
         val binding: FragmentSignInBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_sign_in, container, false)
@@ -42,7 +37,7 @@ class SignInFragment : Fragment() {
 
         viewModel.correctEmail.observe(this, Observer { correct ->
             if(!correct){
-                binding.emailLayout.error = "E-mail can't be empty"
+                binding.emailLayout.error = getString(R.string.email_cant_be)
             } else {
                 binding.emailLayout.isErrorEnabled = false
             }
@@ -55,7 +50,7 @@ class SignInFragment : Fragment() {
 
         viewModel.correctPassword.observe(this, Observer { correct ->
             if(!correct){
-                binding.passwordLayout.error = "At least 8 characters"
+                binding.passwordLayout.error = getString(R.string.at_least_8)
             } else {
                 binding.passwordLayout.isErrorEnabled = false
             }
@@ -64,10 +59,10 @@ class SignInFragment : Fragment() {
         viewModel.problemSignIn.observe(this, Observer {code ->
             var msg: String = ""
             when(code){
-                0 -> msg = "You have successfully signed in"
-                1 -> msg = "Invalid field values"
-                2 -> msg = "There is no client with this email and password"
-                3 -> msg = "You have successfully signed out"
+                0 -> msg = getString(R.string.successfully_signed_in)
+                1 -> msg = getString(R.string.invalid_string_values)
+                2 -> msg = getString(R.string.wrong_email_or_pass)
+                3 -> msg = getString(R.string.successfully_signed_out)
             }
             Snackbar.make(
                 activity!!.findViewById(android.R.id.content), msg,
@@ -86,7 +81,4 @@ class SignInFragment : Fragment() {
         binding.lifecycleOwner = this
         return binding.root
     }
-
-
-
 }

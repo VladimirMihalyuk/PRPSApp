@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".registration.RegistrationFragmnet">
+            tools:context=".registration.RegistrationFragment">
         <TextView
                 android:text="@string/sign_up"
                 style="@style/TextAppearance.Title"

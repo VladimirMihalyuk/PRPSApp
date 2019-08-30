@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.prpsapp.database.DatabaseDao
-import com.example.prpsapp.database.Session
 import kotlinx.coroutines.*
 
 class ReturnTicketsViewModel(val database: DatabaseDao,

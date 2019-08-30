@@ -53,11 +53,11 @@ class BuyTicketsViewModel(val database: DatabaseDao,
                     val date = CalendarDay.from(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DAY_OF_MONTH))
                     dates.value?.add(date)
                     if(map[date] == null){
-                        map[date] = mutableListOf(list.get(i).cinema)
+                        map[date] = mutableListOf(list[i].cinema)
                     } else {
-                        map[date]?.add(list.get(i).cinema)
+                        map[date]?.add(list[i].cinema)
                     }
-                    cinemaMap[list.get(i).cinema to date] = list.get(i).idTicket
+                    cinemaMap[list[i].cinema to date] = list[i].idTicket
                     ++i
                 }
             }

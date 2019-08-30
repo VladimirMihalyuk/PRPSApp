@@ -41,7 +41,7 @@
                 app:destination="@id/poster_fragment"/>
     </fragment>
     <fragment android:id="@+id/registrationFragmnet"
-              android:name="com.example.prpsapp.registration.RegistrationFragmnet" android:label="Registration"
+              android:name="com.example.prpsapp.registration.RegistrationFragment" android:label="Registration"
               tools:layout="@layout/fragment_registration">
         <action android:id="@+id/action_registrationFragmnet_to_signInFragment" app:destination="@id/signInFragment"/>
     </fragment>

@@ -3,7 +3,6 @@ package com.example.prpsapp.return_tickets
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +14,7 @@ import com.example.prpsapp.App.Companion.prefs
 import com.example.prpsapp.R
 import com.example.prpsapp.database.CinemaDatabase
 import com.example.prpsapp.databinding.FragmentReturnTicketsBinding
-import com.example.prpsapp.poster.PosterAdapter
-import com.example.prpsapp.poster.PosterViewModel
-import com.example.prpsapp.poster.PosterViewModelFactory
-import com.example.prpsapp.poster.SessionClickListener
+import com.google.android.material.snackbar.Snackbar
 
 class ReturnTicketsFragment : Fragment() {
 
@@ -40,16 +36,20 @@ class ReturnTicketsFragment : Fragment() {
 
         binding.viewModel = viewModel
 
+        if(prefs?.emailClient == null){
+            Snackbar.make(activity!!.findViewById(android.R.id.content),
+                getString(R.string.please_sign_in), Snackbar.LENGTH_SHORT).show()
+        }
+
         viewModel.deleteId.observe(this, Observer { id ->
             val builder = AlertDialog.Builder(this.activity)
-            builder.setTitle("Returning tickets")
-            builder.setMessage("Are you want to return this tickets?")
+            builder.setTitle(getString(R.string.returning_tickets))
+            builder.setMessage(getString(R.string.want_to_return_this_tickets))
 
-            builder.setNeutralButton("YES"){dialog, which ->
+            builder.setNeutralButton(getString(R.string.yes)){ _, which ->
                 viewModel.deleteTicketsFromDB(id ?: 0, prefs?.emailClient.toString())
             }
-
-            builder.setNegativeButton("No"){dialog,which -> }
+            builder.setNegativeButton(getString(R.string.no)){ _, which -> }
 
             val dialog: AlertDialog = builder.create()
 

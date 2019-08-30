@@ -14,8 +14,7 @@ class ReturnTicketsViewModel(val database: DatabaseDao,
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    val  tickets = database.getTicketsForClient(email)
-
+    val tickets = database.getTicketsForClient(email)
 
     private val _deleteId = MutableLiveData<Long?>()
     val deleteId: LiveData<Long?>

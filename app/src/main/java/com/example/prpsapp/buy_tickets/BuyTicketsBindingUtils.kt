@@ -56,6 +56,7 @@ fun MaterialCalendarView.setDecor(dates: MutableLiveData<HashSet<CalendarDay>>?)
 @BindingAdapter("clickListener")
 fun MaterialCalendarView.setClickListener(viewModel: BuyTicketsViewModel){
     this.setOnDateChangedListener { widget, date,selected ->
+        viewModel.selectedDate = date
         if(viewModel.dates.value?.contains(date) != true){
             viewModel.thereIsNoSuchEvent.value = true
             viewModel.cinema.value = mutableListOf<String>()

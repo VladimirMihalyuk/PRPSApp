@@ -20,16 +20,6 @@ import com.example.prpsapp.poster.PosterViewModel
 import com.example.prpsapp.poster.PosterViewModelFactory
 import com.example.prpsapp.poster.SessionClickListener
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
 class ReturnTicketsFragment : Fragment() {
 
     override fun onCreateView(
@@ -64,7 +54,6 @@ class ReturnTicketsFragment : Fragment() {
             val dialog: AlertDialog = builder.create()
 
             dialog.show()
-            Log.d("WTF","$id")
         })
 
 
@@ -81,8 +70,6 @@ class ReturnTicketsFragment : Fragment() {
                 adapter.submitList(it)
             }
         })
-
-
         return binding.root
     }
 }

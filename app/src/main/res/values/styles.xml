@@ -1,11 +1,13 @@
 <resources>
 
-    <!-- Base application theme. -->
+   
+
     <style name="AppTheme" parent="Theme.MaterialComponents.Light">
 
         <item name="android:actionBarStyle">@color/primaryLightColor</item>
 
         <item name="colorPrimary">@color/primaryDarkColor</item>
+
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
         <item name="colorOnPrimary">@color/primaryTextColor</item>

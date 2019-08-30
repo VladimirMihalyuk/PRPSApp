@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.prpsapp.database.DatabaseDao
-import com.example.prpsapp.poster.PosterViewModel
 
 
 class BuyTicketsViewModelFactory(private val dataSource: DatabaseDao,

@@ -34,6 +34,7 @@
                         app:filmImage="@{viewModel}"/>
                 <TextView
                         android:text="@{viewModel.filmName}"
+                        style="@style/TextAppearance.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView"
@@ -47,6 +48,7 @@
 
                 <TextView
                         android:text="@{viewModel.description}"
+                        style="@style/TextAppearance.Subtitle"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

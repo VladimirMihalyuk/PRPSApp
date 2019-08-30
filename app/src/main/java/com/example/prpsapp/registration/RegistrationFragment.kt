@@ -2,8 +2,6 @@ package com.example.prpsapp.registration
 
 
 import android.os.Bundle
-import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,23 +11,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.prpsapp.R
 import com.example.prpsapp.database.CinemaDatabase
-import com.example.prpsapp.databinding.FragmentPosterBinding
 import com.example.prpsapp.databinding.FragmentRegistrationBinding
-import com.example.prpsapp.poster.PosterViewModel
-import com.example.prpsapp.poster.PosterViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
-class RegistrationFragmnet : Fragment() {
+class RegistrationFragment : Fragment() {
 
 
 
@@ -56,7 +42,7 @@ class RegistrationFragmnet : Fragment() {
 
         viewModel.correctFullName.observe(this, Observer { correct ->
             if(!correct){
-                binding.fullNameLayout.error = "Full name can't be empty"
+                binding.fullNameLayout.error = getString(R.string.fn_cant_be_empty)
             } else {
                 binding.fullNameLayout.isErrorEnabled = false
             }
@@ -65,7 +51,7 @@ class RegistrationFragmnet : Fragment() {
 
         viewModel.correctPhoneNumber.observe(this, Observer { correct ->
             if(!correct){
-                binding.phoneNumberLayout.error = "Example:+375 ** ***-**-**"
+                binding.phoneNumberLayout.error = getString(R.string.example)
             } else {
                 binding.phoneNumberLayout.isErrorEnabled = false
             }
@@ -73,15 +59,15 @@ class RegistrationFragmnet : Fragment() {
 
         viewModel.correctEmail.observe(this, Observer { correct ->
             if(!correct){
-                binding.emailLayout.error = "Wrong e-mail"
+                binding.emailLayout.error = getString(R.string.wrong_email)
             } else {
                 binding.emailLayout.isErrorEnabled = false
             }
         })
 
         viewModel.correctPassword.observe(this, Observer { correct ->
-            if(!correct){
-                binding.passwordLayout.error = "At least 8 characters"
+            if(!correct) {
+                binding.passwordLayout.error = getString(R.string.at_least_8)
             } else {
                 binding.passwordLayout.isErrorEnabled = false
             }
@@ -89,18 +75,18 @@ class RegistrationFragmnet : Fragment() {
 
         viewModel.correctConfirmPassword.observe(this, Observer { correct ->
             if(!correct){
-                binding.confirmPasswordLayout.error = "Must match the password"
+                binding.confirmPasswordLayout.error = getString(R.string.must_match_the_pass)
             } else {
                 binding.confirmPasswordLayout.isErrorEnabled = false
             }
         })
 
         viewModel.problemCreateCode.observe(this, Observer { code ->
-            var msg: String = ""
+            var msg = ""
             when(code){
-                0 -> msg = "You have successfully registered"
-                1 -> msg = "Invalid field values"
-                2 -> msg = "Client with this email is already registered"
+                0 -> msg = getString(R.string.you_have_successfully)
+                1 -> msg = getString(R.string.invalid_field_values)
+                2 -> msg = getString(R.string.client_with_this_email_is)
             }
             Snackbar.make(
                 activity!!.findViewById(android.R.id.content), msg,

@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.prpsapp.database.DatabaseDao
-import com.example.prpsapp.database.Session
 import kotlinx.coroutines.*
 
 class ReturnTicketsViewModel(val database: DatabaseDao,
@@ -14,8 +13,7 @@ class ReturnTicketsViewModel(val database: DatabaseDao,
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    val  tickets = database.getTicketsForClient(email)
-
+    val tickets = database.getTicketsForClient(email)
 
     private val _deleteId = MutableLiveData<Long?>()
     val deleteId: LiveData<Long?>

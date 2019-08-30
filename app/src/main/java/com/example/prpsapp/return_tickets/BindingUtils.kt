@@ -4,7 +4,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.prpsapp.database.ReturnTicketsQueryFirst
-import com.example.prpsapp.database.Session
 import java.text.SimpleDateFormat
 import java.util.*
 

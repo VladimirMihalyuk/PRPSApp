@@ -25,19 +25,19 @@ class BuyTicketsViewModel(val database: DatabaseDao,
     val cinema  = MutableLiveData<MutableList<String>>()
     val dates  = MutableLiveData<HashSet<CalendarDay>>()
     val map : HashMap<CalendarDay, MutableList<String>> = hashMapOf()
-    val cinemaMap: HashMap<String, Long> = hashMapOf()
+    val cinemaMap: HashMap<Pair<String, CalendarDay> , Long> = hashMapOf()
 
     var selectedCinema = ""
     var selectedTickets = 0
     var isSelected = false
     var alreadyBoughtTickets = 0L
+    var selectedDate: CalendarDay = CalendarDay.from(1, 1, 1)
 
     private suspend fun getList(idSession: Long): List<BuyTicketsQueryFirst>?{
         return withContext(Dispatchers.IO){
             async {database.getListOfTickets(idSession)  }.await()
         }
     }
-
 
     init {
         uiScope.launch {
@@ -53,11 +53,11 @@ class BuyTicketsViewModel(val database: DatabaseDao,
                     val date = CalendarDay.from(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DAY_OF_MONTH))
                     dates.value?.add(date)
                     if(map[date] == null){
-                        map[date] = mutableListOf(list.get(i).cinema)
+                        map[date] = mutableListOf(list[i].cinema)
                     } else {
-                        map[date]?.add(list.get(i).cinema)
+                        map[date]?.add(list[i].cinema)
                     }
-                    cinemaMap[list.get(i).cinema] = list.get(i).idTicket
+                    cinemaMap[list[i].cinema to date] = list[i].idTicket
                     ++i
                 }
             }
@@ -98,18 +98,17 @@ class BuyTicketsViewModel(val database: DatabaseDao,
             if(prefs.emailClient != null){
                 uiScope.launch{
                     val idClient = getIdOfClient(prefs.emailClient.toString()) ?: 0
-                    countTickets(idClient,cinemaMap[selectedCinema] ?: 0 )
+                    countTickets(idClient,cinemaMap[selectedCinema to selectedDate] ?: 0 )
                     if(selectedTickets + alreadyBoughtTickets > 5){
                         buyResultCode.value = 3
                     } else {
-                        insertTicketsDB(selectedTickets, cinemaMap[selectedCinema] ?: 0, idClient)
+                        insertTicketsDB(selectedTickets, cinemaMap[selectedCinema to selectedDate] ?: 0, idClient)
                         buyResultCode.value = 0
                     }
                 }
             } else {
                 buyResultCode.value = 2
             }
-
         } else {
             buyResultCode.value = 1
         }
@@ -118,11 +117,9 @@ class BuyTicketsViewModel(val database: DatabaseDao,
 
     val thereIsNoSuchEvent = MutableLiveData<Boolean>()
 
-
     fun endThereIsNoSuchEvent(){
         thereIsNoSuchEvent.value = false
     }
-
 
     override fun onCleared() {
         super.onCleared()

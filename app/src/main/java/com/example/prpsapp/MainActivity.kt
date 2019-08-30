@@ -1,10 +1,12 @@
 package com.example.prpsapp
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -32,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, args: Bundle? ->
             val flag = nd.id == R.id.signInFragment || nd.id == R.id.registrationFragmnet
             menuObj?.findItem( R.id.signInFragment)?.setVisible(!flag)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDarkColor));
         }
     }
 

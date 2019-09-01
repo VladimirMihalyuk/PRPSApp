@@ -24,20 +24,14 @@ class RegistrationViewModel(val database: DatabaseDao, application: Application)
     val fullName = MutableLiveData<String>()
     val correctFullName = MutableLiveData<Boolean>()
 
-
     val phoneNumber = MutableLiveData<String>()
     val correctPhoneNumber = MutableLiveData<Boolean>()
-
 
     val email = MutableLiveData<String>()
     val correctEmail = MutableLiveData<Boolean>()
 
-
-
     val password = MutableLiveData<String>()
     val correctPassword = MutableLiveData<Boolean>()
-
-
 
     val confirmPassword = MutableLiveData<String>()
     val correctConfirmPassword = MutableLiveData<Boolean>()
@@ -62,20 +56,20 @@ class RegistrationViewModel(val database: DatabaseDao, application: Application)
         }
     }
 
-
     private val  _problemCreateCode = MutableLiveData<Int>()
     val problemCreateCode : LiveData<Int>
         get() = _problemCreateCode
 
     fun addClientBinding(){
         uiScope.launch {
-            if(!(correctFullName.value ?: false) || !(correctPhoneNumber.value ?: false) || !(correctEmail.value ?: false) ||
-                !(correctPassword.value  ?: false) || !(correctConfirmPassword.value ?: false)){
+            if(correctFullName.value != true || correctPhoneNumber.value != true || correctEmail.value != true ||
+                correctPassword.value != true || correctConfirmPassword.value != true
+            ){
                 _problemCreateCode.value = 1
             } else {
                 val result = getClient(email.value ?: "")
 
-                if(!result.isEmpty()){
+                if(result.isNotEmpty()){
                     _problemCreateCode.value = 2
                 } else {
                     insertClient( Client( fullName = fullName.value ?: "", phoneNumber = phoneNumber.value ?: "", email = email.value ?: "",

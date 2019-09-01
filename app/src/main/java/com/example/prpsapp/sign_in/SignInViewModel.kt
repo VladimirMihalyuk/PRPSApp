@@ -29,24 +29,23 @@ class SignInViewModel(val database: DatabaseDao, application: Application) : And
     }
 
 
-    private val  _problemSignIn = MutableLiveData<Int>()
-    val problemSignIn : LiveData<Int>
+    private val _problemSignIn = MutableLiveData<Int>()
+    val problemSignIn: LiveData<Int>
         get() = _problemSignIn
 
-    fun onClick(){
+    fun onClick() {
         uiScope.launch {
-            if(!(correctEmail.value ?: false) ||  !(correctPassword.value  ?: false)){
+            if (correctEmail.value != true || correctPassword.value != true) {
                 _problemSignIn.value = 1
             } else {
                 val id = getClient(email.value ?: "", password.value ?: "")
-                if(id == null){
+                if (id == null) {
                     _problemSignIn.value = 2
                 } else {
                     prefs.emailClient = email.value
                     _problemSignIn.value = 0
                 }
             }
-
         }
     }
 
@@ -54,19 +53,18 @@ class SignInViewModel(val database: DatabaseDao, application: Application) : And
     val eventSignUp: LiveData<Boolean>
         get() = _eventSignUp
 
-    fun signUp(){
+    fun signUp() {
         _eventSignUp.value = true
     }
 
-    fun endSignUpEvent(){
+    fun endSignUpEvent() {
         _eventSignUp.value = false
     }
 
-    fun signOut(){
+    fun signOut() {
         prefs.emailClient = null
         _problemSignIn.value = 3
     }
-
 
     override fun onCleared() {
         super.onCleared()

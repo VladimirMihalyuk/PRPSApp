@@ -13,7 +13,7 @@ interface DatabaseDao {
     fun insertClient(night: Client)
 
     @Query("SELECT * FROM session WHERE ticketsLeft > 0")
-    fun getAllSessions(): LiveData<List<Session>>
+    fun getAllSessions(): LiveData<List<Session>?>
 
     @Query("SELECT *FROM Client WHERE email = :newEmail")
     fun getClientsWithEmail(newEmail: String): List<Client>

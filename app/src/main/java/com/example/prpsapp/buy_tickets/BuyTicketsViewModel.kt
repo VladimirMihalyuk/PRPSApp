@@ -42,7 +42,6 @@ class BuyTicketsViewModel(val database: DatabaseDao,
     init {
         uiScope.launch {
             val list = getList(idSession)
-            //cinema.value = list?.map{it.cinema}?.toMutableList()
             val dateList = list?.map{it.time}
             dates.value = hashSetOf()
             var i = 0
@@ -63,7 +62,6 @@ class BuyTicketsViewModel(val database: DatabaseDao,
             }
             tickets.value = ticketsLeft
         }
-
     }
 
     val buyResultCode = MutableLiveData<Int>()
@@ -112,7 +110,6 @@ class BuyTicketsViewModel(val database: DatabaseDao,
         } else {
             buyResultCode.value = 1
         }
-
     }
 
     val thereIsNoSuchEvent = MutableLiveData<Boolean>()

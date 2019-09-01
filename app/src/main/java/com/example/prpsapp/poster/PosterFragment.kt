@@ -35,7 +35,6 @@ class PosterFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-
         binding.lifecycleOwner = this
 
         viewModel.navigateToBuyTicket.observe(this, Observer { idSession ->
@@ -58,9 +57,6 @@ class PosterFragment : Fragment() {
                 adapter.submitList(it)
             }
         })
-
         return binding.root
     }
-
-
 }

@@ -17,8 +17,6 @@ import com.google.android.material.snackbar.Snackbar
 
 class RegistrationFragment : Fragment() {
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,7 +45,6 @@ class RegistrationFragment : Fragment() {
                 binding.fullNameLayout.isErrorEnabled = false
             }
         })
-
 
         viewModel.correctPhoneNumber.observe(this, Observer { correct ->
             if(!correct){

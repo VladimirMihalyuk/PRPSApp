@@ -2,7 +2,6 @@ package com.example.prpsapp.buy_tickets
 
 import android.R
 import android.graphics.Color
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter

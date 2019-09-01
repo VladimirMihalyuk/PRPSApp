@@ -38,7 +38,6 @@ class PosterAdapter(val clickListener: SessionClickListener):
             }
         }
     }
-
 }
 
 

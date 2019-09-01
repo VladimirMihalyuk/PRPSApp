@@ -42,7 +42,6 @@ class BuyTicketsFragment : Fragment() {
 
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(BuyTicketsViewModel::class.java)
 
-
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
@@ -61,7 +60,6 @@ class BuyTicketsFragment : Fragment() {
                 Snackbar.LENGTH_SHORT
             ).show()
             viewModel.endThereIsNoSuchEvent()
-
         })
 
         viewModel.thereIsNoSuchEvent.observe(this, Observer { flag ->
@@ -74,6 +72,4 @@ class BuyTicketsFragment : Fragment() {
 
         return binding.root
     }
-
-
 }

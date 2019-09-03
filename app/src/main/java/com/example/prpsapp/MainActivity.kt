@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(navigation_view, navController);
         NavigationUI.setupActionBarWithNavController(this, navController)
 
-
         navController.addOnDestinationChangedListener { nc: NavController, nd: NavDestination, args: Bundle? ->
             val flag = nd.id == R.id.signInFragment || nd.id == R.id.registrationFragmnet
             menuObj?.findItem( R.id.signInFragment)?.setVisible(!flag)

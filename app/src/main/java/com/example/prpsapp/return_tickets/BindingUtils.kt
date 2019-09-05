@@ -1,8 +1,11 @@
 package com.example.prpsapp.return_tickets
 
+import android.util.Log
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.example.prpsapp.R
 import com.example.prpsapp.database.ReturnTicketsQueryFirst
 import java.text.SimpleDateFormat
 import java.util.*
@@ -29,5 +32,16 @@ fun TextView.setDate(item: ReturnTicketsQueryFirst?) {
 fun TextView.setTickets(item: ReturnTicketsQueryFirst?) {
     item?.let {
         text = "You bought ${item.tickets} ${if(item.tickets == 1L) "ticket" else "tickets"}"
+    }
+}
+
+@BindingAdapter("blink")
+fun ImageView.setAnimation(flag: Boolean?) {
+    flag?.let {
+         if(flag){
+             Log.d("WTF", "ANIMATION")
+             val animation = AnimationUtils.loadAnimation(context, R.anim.blink_animation)
+             this.startAnimation(animation)
+         }
     }
 }

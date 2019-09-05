@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -49,7 +50,10 @@ class BuyTicketsFragment : Fragment() {
         viewModel.buyResultCode.observe(this, Observer { code ->
             var msg = ""
             when(code){
-                0 -> msg = "You have bought ${viewModel.selectedTickets} tickets"
+                0 ->  {msg  ="You have bought ${viewModel.selectedTickets} tickets"
+
+                }
+
                 1 -> msg = getString(R.string.message)
                 2 -> msg = getString(R.string.please_sign_in)
                 3 -> msg = "You can't buy more than 5 tickets per session. Now you have ${viewModel.alreadyBoughtTickets} "

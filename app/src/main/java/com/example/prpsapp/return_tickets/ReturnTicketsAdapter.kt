@@ -1,5 +1,6 @@
 package com.example.prpsapp.return_tickets
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prpsapp.database.ReturnTicketsQueryFirst
 import com.example.prpsapp.databinding.ReturnTicketListItemBinding
+import java.util.*
 
 class ReturnTicketsAdapter(val clickListener: ReturnTicketsClickListener):
     ListAdapter<ReturnTicketsQueryFirst, ReturnTicketsAdapter.ViewHolder>(DiffCallback()){
@@ -27,6 +29,9 @@ class ReturnTicketsAdapter(val clickListener: ReturnTicketsClickListener):
         fun bind(clickListener: ReturnTicketsClickListener, item:ReturnTicketsQueryFirst) {
             binding.viewModel = item
             binding.clickListener = clickListener
+            var time = Calendar.getInstance().timeInMillis
+            time = ( time / (24 * 60 * 60 * 1000) ) * (24 * 60 * 60 * 1000)
+            binding.today = time == item.time
             binding.executePendingBindings()
         }
 

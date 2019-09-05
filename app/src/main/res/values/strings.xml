@@ -48,5 +48,6 @@
     <string name="invalid_string_values">Invalid field values</string>
     <string name="wrong_email_or_pass">Wrong email or password</string>
     <string name="successfully_signed_out">You have successfully signed out</string>
+    <string name="cinema">Cinema:</string>
 
 </resources>

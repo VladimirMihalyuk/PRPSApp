@@ -65,7 +65,7 @@ object NotificationHelper{
         val intent = Intent(context, AlertReceiver::class.java)
         intent.putExtra(TITLE, title)
         intent.putExtra(TEXT, text)
-        val pendingIntent = PendingIntent.getBroadcast(context, 1, intent, 0)
+        val pendingIntent = PendingIntent.getBroadcast(context, System.currentTimeMillis().toInt(), intent, 0)
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, date + WHEN_ALARM * 60 * 60 * 1000, pendingIntent)
     }
 }

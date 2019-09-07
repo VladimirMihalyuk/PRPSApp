@@ -2,17 +2,19 @@ package com.example.prpsapp.buy_tickets
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.NotificationCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.prpsapp.R
 import com.example.prpsapp.database.CinemaDatabase
 import com.example.prpsapp.databinding.FragmentBuyTicketsBinding
+import com.example.prpsapp.notification.NotificationHelper.startAlarm
+import com.example.prpsapp.notification.getMillis
 import com.google.android.material.snackbar.Snackbar
 
 class BuyTicketsFragment : Fragment() {
@@ -50,10 +52,16 @@ class BuyTicketsFragment : Fragment() {
         viewModel.buyResultCode.observe(this, Observer { code ->
             var msg = ""
             when(code){
-                0 ->  {msg  ="You have bought ${viewModel.selectedTickets} tickets"
 
+                0 ->  {Log.d("WTF", "${viewModel.selectedDate.getMillis()}")
+                    msg  ="You have bought ${viewModel.selectedTickets} tickets"
+                    startAlarm(
+                        context!!,
+                        viewModel.selectedDate.getMillis(),
+                        "Cinema Today",
+                        "Hey, you got a film ${viewModel.filmName} at ${viewModel.selectedCinema}"
+                    )
                 }
-
                 1 -> msg = getString(R.string.message)
                 2 -> msg = getString(R.string.please_sign_in)
                 3 -> msg = "You can't buy more than 5 tickets per session. Now you have ${viewModel.alreadyBoughtTickets} "
@@ -63,6 +71,7 @@ class BuyTicketsFragment : Fragment() {
                 msg,
                 Snackbar.LENGTH_SHORT
             ).show()
+
             viewModel.endThereIsNoSuchEvent()
         })
 

@@ -2,6 +2,7 @@ package com.example.prpsapp.buy_tickets
 
 import android.R
 import android.graphics.Color
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -84,6 +85,7 @@ fun Spinner.selectedCinema(viewModel: BuyTicketsViewModel){
 @BindingAdapter("ticketsSelectedListener")
 fun Spinner.selectedTickets(viewModel: BuyTicketsViewModel){
     this.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             viewModel.selectedTickets = parent?.getItemAtPosition(position).toString()[0].toInt() - 48
         }

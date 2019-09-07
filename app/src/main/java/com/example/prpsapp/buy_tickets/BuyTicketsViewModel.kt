@@ -30,6 +30,7 @@ class BuyTicketsViewModel(val database: DatabaseDao,
     var selectedCinema = ""
     var selectedTickets = 0
     var isSelected = false
+
     var alreadyBoughtTickets = 0L
     var selectedDate: CalendarDay = CalendarDay.from(1, 1, 1)
 
@@ -90,6 +91,8 @@ class BuyTicketsViewModel(val database: DatabaseDao,
             alreadyBoughtTickets = database.getTicketForClientNumber(idClient,idTicket)
         }
     }
+
+    var name = ""
 
     fun buyTickets(){
         if(isSelected){

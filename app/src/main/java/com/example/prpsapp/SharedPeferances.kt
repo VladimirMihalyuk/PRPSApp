@@ -3,8 +3,12 @@ package com.example.prpsapp
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.prpsapp.notification.NotificationHelper.createNotificationChannel
 
 val FIVE = 5L
+val WHEN_ALARM = 9
+
+
 
 val prefs: Prefs by lazy {
     App.prefs!!
@@ -16,8 +20,9 @@ class App : Application() {
     }
 
     override fun onCreate() {
-        prefs = Prefs(applicationContext)
         super.onCreate()
+        prefs = Prefs(applicationContext)
+        createNotificationChannel(this)
     }
 }
 

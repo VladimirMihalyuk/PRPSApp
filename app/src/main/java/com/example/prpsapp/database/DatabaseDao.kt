@@ -40,7 +40,7 @@ interface DatabaseDao {
     @Query("SELECT COUNT() FROM TicketsForClient WHERE idClient = :idClient and idTicket = :idTicket")
     fun getTicketForClientNumber(idClient: Long, idTicket: Long):Long
 
-    @Query("SELECT T.idTicket, T.time, T.cinema, S.nameOfFilm, S.image, Count() as tickets FROM TicketsForClient as TFC, Ticket as T,  TicketsForSession as TFS, Session as S, Client as C WHERE C.email = :email and C.idClient = TFC.idClient and TFC.idTicket = T.idTicket and T.idTicket = TFS.idTicket and TFS.idSession = S.idSession GROUP BY TFC.idTicket")
+    @Query("SELECT T.idTicket, T.time, T.cinema, S.nameOfFilm, S.image, Count() as tickets FROM TicketsForClient as TFC, Ticket as T,  TicketsForSession as TFS, Session as S, Client as C WHERE C.email = :email and C.idClient = TFC.idClient and TFC.idTicket = T.idTicket and T.idTicket = TFS.idTicket and TFS.idSession = S.idSession GROUP BY TFC.idTicket ORDER BY T.time")
     fun getTicketsForClient(email: String): LiveData<List<ReturnTicketsQueryFirst>>
 
     @Query("SELECT Count() FROM TicketsForClient WHERE idTicket = :idTicket and idClient = :idClient")
